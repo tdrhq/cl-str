@@ -156,10 +156,11 @@
 It uses `subseq' with differences:
 - argument order, s at the end
 - `start' and `end' can be lower than 0 or bigger than the length of s.
-- for convenience `end' can be nil or t to denote the end of the string.
+- for convenience `end' can be nil, t or `:end' to denote the end of the string.
 "
   (let* ((s-length (length s))
          (end (cond
+                ((equal :end end) s-length)
                 ((null end) s-length)
                 ((eq end t) s-length)
                 (t end))))

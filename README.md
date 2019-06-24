@@ -529,6 +529,7 @@ Note that there is also http://quickdocs.org/string-case/.
 
 * 0.13 june, 2019
   - added `insert`
+  - in `substring`: added `:end` to denote the end of the string.
 * 0.12
   - added case predicates (`downcasep`, `alphap`, `has-x` and friends).
 * 0.11 (Quicklisp end of march, 2019, also in Ultralisp)
