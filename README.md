@@ -963,6 +963,14 @@ Match with regexs:
 
 ## Changelog
 
+* September, 2025:
+  * small backward uncompatible correctness changes, thanks to @swapneils:
+    * `join` now treats a `nil` separator as the empty string, rather than the string `"nil"`, conforming to the semantics in the README of not converting `nil` to `"nil"`.
+    * `containsp` now automatically returns `nil` if either string input is `nil`.
+    * `alphanump` and similar now use the correct regex checks for multi-line strings, rather than accepting an input if it has any line matching their specification.
+  * optimization changes, thanks to @swapneils:
+    * multiple non-recursive functions have been inlined.
+    * multiple functions have `ftype` declarations.
 * April, 2025:
   * optimized `repeat` for large workloads. When the workload is
     sufficiently large, `str:repeat` allocates all chunks of the
