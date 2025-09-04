@@ -235,6 +235,14 @@
                   string/char
                   (subseq s index)))))
 
+
+;; Inline before first use.
+(declaim (inline emptyp))
+(defun emptyp (s)
+  "Is s nil or the empty string ?"
+  (or (null s) (string-equal "" s)))
+
+
 (defun split (separator s &key (omit-nulls *omit-nulls*) limit (start 0) end regex)
   "Split s into substring by separator (cl-ppcre takes a regex, we do not).
 
@@ -463,11 +471,6 @@ we generate it in chunks to avoid stack/heap overflows."
       (declare (string key value))
       (setf s (replace-all key value s :regex regex))))
   s)
-
-(declaim (inline emptyp))
-(defun emptyp (s)
-  "Is s nil or the empty string ?"
-  (or (null s) (string-equal "" s)))
 
 (declaim (inline non-empty-string-p))
 (defun non-empty-string-p (s)
