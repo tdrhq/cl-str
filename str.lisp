@@ -1316,9 +1316,9 @@ expression returns a non-empty string."
   (let ((var (gensym)))
    `(or
      ,@ (loop for arg in args
-              collect `(let ((var ,arg))
-                         (unless (str:emptyp var)
-                           var))))))
+              collect `(let ((,var ,arg))
+                         (unless (str:emptyp ,var)
+                           ,var))))))
 
 ;; "deprecated" function alias
 (setf (fdefinition 'prune)        #'shorten
